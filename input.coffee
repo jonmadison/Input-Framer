@@ -7,7 +7,7 @@ growthRatio = Screen.width / 732
 imageHeight = growthRatio * 432
 
 exports.keyboardLayer.states =
-	shown: 
+	shown:
 		y: Screen.height - imageHeight
 
 exports.keyboardLayer.states.animationOptions =
@@ -31,6 +31,8 @@ class exports.Input extends Layer
 		options.height ?= 60
 		options.backgroundColor ?= if options.setup then "rgba(255, 60, 47, .5)" else "transparent"
 		options.fontSize ?= 30
+		options.fontFamily ?= 'Times New Roman'
+		options.fontColor ?= "#222"
 		options.lineHeight ?= 30
 		options.padding ?= 10
 		options.text ?= ""
@@ -40,11 +42,11 @@ class exports.Input extends Layer
 		options.goButton ?= false
 
 		super options
-
+		print options.fontFamily
 		@placeholderColor = options.placeholderColor if options.placeholderColor?
 		@input = document.createElement "input"
 		@input.id = "input-#{_.now()}"
-		@input.style.cssText = "font-size: #{options.fontSize}px; line-height: #{options.lineHeight}px; padding: #{options.padding}px; width: #{options.width}px; height: #{options.height}px; border: none; outline-width: 0; background-image: url(about:blank); background-color: #{options.backgroundColor};"
+		@input.style.cssText = "color: #{options.fontColor}; font-family: #{options.fontFamily}; font-size: #{options.fontSize}px; line-height: #{options.lineHeight}px; padding: #{options.padding}px; width: #{options.width}px; height: #{options.height}px; border: none; outline-width: 0; background-image: url(about:blank); background-color: #{options.backgroundColor};"
 		@input.value = options.text
 		@input.type = options.type
 		@input.placeholder = options.placeholder
