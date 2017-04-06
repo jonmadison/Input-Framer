@@ -42,7 +42,6 @@ class exports.Input extends Layer
 		options.goButton ?= false
 
 		super options
-		print options.fontFamily
 		@placeholderColor = options.placeholderColor if options.placeholderColor?
 		@input = document.createElement "input"
 		@input.id = "input-#{_.now()}"
